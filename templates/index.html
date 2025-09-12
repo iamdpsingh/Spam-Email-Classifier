@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Email Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Spam Email Classifier</h1>
+            <p>Advanced Machine Learning-based Email Classification System</p>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">🏠 Home</a>
+                <a href="/analytics" class="nav-link">📊 Analytics</a>
+                <a href="/about" class="nav-link">ℹ️ About</a>
+            </div>
+        </header>
+
+        <main>
+            <div class="classifier-section">
+                <h2>📧 Email Classifier</h2>
+                <form method="POST" id="emailForm">
+                    <div class="form-group">
+                        <label for="email_text">Email Content:</label>
+                        <textarea 
+                            name="email_text" 
+                            id="email_text" 
+                            placeholder="Paste your email content here for classification..."
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            🔍 Classify Email
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </form>
+
+                {% if result %}
+                <div class="result-container">
+                    <div class="result {{ 'spam' if result == 'Spam' else 'ham' }}">
+                        <h3>
+                            {% if result == 'Spam' %}
+                                🚨 Classification Result: <strong>SPAM</strong>
+                            {% elif result == 'Ham' %}
+                                ✅ Classification Result: <strong>LEGITIMATE (HAM)</strong>
+                            {% else %}
+                                ⚠️ {{ result }}
+                            {% endif %}
+                        </h3>
+                        {% if confidence %}
+                        <p class="confidence">{{ confidence }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <section class="examples">
+                <h3>📝 Try These Example Emails:</h3>
+                <div class="example-grid">
+                    <div class="example-card">
+                        <h4>🚨 Spam Example</h4>
+                        <p>Try a typical spam email</p>
+                        <button onclick="fillExample('spam')" class="btn btn-example">
+                            Load Spam Example
+                        </button>
+                    </div>
+                    <div class="example-card">
+                        <h4>✅ Ham Example</h4>
+                        <p>Try a legitimate email</p>
+                        <button onclick="fillExample('ham')" class="btn btn-example">
+                            Load Ham Example
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h3>🌟 Key Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h4>Machine Learning</h4>
+                        <p>Advanced algorithms including Naive Bayes, Logistic Regression, and Random Forest</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h4>Text Analytics</h4>
+                        <p>Comprehensive text analysis with word frequency and pattern detection</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>Real-time</h4>
+                        <p>Instant email classification with confidence scores</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>High Accuracy</h4>
+                        <p>Over 97% accuracy in distinguishing spam from legitimate emails</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using Python, Flask, scikit-learn & Advanced NLP</p>
+            <p>© 2025 Spam Email Classifier Project</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

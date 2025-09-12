@@ -1,0 +1,9 @@
+Flask
+scikit-learn
+pandas
+numpy
+nltk
+matplotlib
+seaborn
+Werkzeug
+Jinja2
