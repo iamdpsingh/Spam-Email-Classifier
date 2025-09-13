@@ -1,9 +1,11 @@
-Flask
-scikit-learn
+streamlit
 pandas
 numpy
-nltk
+scikit-learn
+plotly
 matplotlib
 seaborn
-Werkzeug
-Jinja2
+nltk
+openpyxl
+xlrd
+chardet
