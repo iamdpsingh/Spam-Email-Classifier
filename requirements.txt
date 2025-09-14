@@ -1,11 +1,11 @@
-streamlit
 pandas
 numpy
 scikit-learn
-plotly
+nltk
+streamlit
 matplotlib
 seaborn
-nltk
-openpyxl
-xlrd
-chardet
+plotly
+joblib
+wordcloud
+textblob

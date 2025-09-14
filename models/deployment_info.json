@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-09-15T04:49:31.029477",
+  "dataset_size": 30,
+  "feature_dimensions": 3000,
+  "models": [
+    "naive_bayes",
+    "logistic_regression"
+  ],
+  "preprocessing_steps": [
+    "Text cleaning",
+    "Tokenization",
+    "Stemming",
+    "Stopword removal",
+    "TF-IDF vectorization"
+  ]
+}
